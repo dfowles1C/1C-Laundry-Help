@@ -688,9 +688,292 @@
       .grid-3 { grid-template-columns: 1fr 1fr; }
       .step-dot span.label { display: none; }
     }
+
+    /* ── Landing Screen ── */
+    #landing-screen {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: var(--bg);
+    }
+    #landing-screen .landing-header {
+      background: #fff;
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #landing-screen .landing-header img {
+      max-height: 56px;
+      width: auto;
+    }
+    #landing-screen .landing-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 24px 64px;
+    }
+    #landing-screen .landing-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+      text-align: center;
+      letter-spacing: -0.01em;
+    }
+    #landing-screen .landing-subtitle {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    .landing-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 720px;
+      width: 100%;
+    }
+    .landing-card {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 36px 28px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      cursor: pointer;
+      transition: box-shadow 0.18s, border-color 0.18s, transform 0.14s;
+      text-decoration: none;
+      box-shadow: var(--shadow);
+    }
+    .landing-card:hover {
+      box-shadow: var(--shadow-hover);
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+    .landing-card .card-icon {
+      font-size: 2.8rem;
+      margin-bottom: 16px;
+      line-height: 1;
+    }
+    .landing-card .card-heading {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .landing-card .card-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.55;
+      flex: 1;
+    }
+    .landing-card .card-cta {
+      display: inline-block;
+      margin-top: 22px;
+      padding: 10px 22px;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      transition: background 0.15s;
+    }
+    .landing-card:hover .card-cta {
+      background: var(--accent);
+    }
+    @media (max-width: 580px) {
+      .landing-cards { grid-template-columns: 1fr; }
+      #landing-screen .landing-title { font-size: 1.25rem; }
+    }
+
+    /* ── Quality Claim Screen ── */
+    #quality-claim-screen {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: var(--bg);
+    }
+    #quality-claim-screen .qc-header {
+      background: #fff;
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #quality-claim-screen .qc-header img {
+      max-height: 56px;
+      width: auto;
+    }
+    .qc-tool-bar {
+      background: var(--primary);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .qc-tool-bar button.back-btn {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.85);
+      border-radius: 5px;
+      padding: 5px 14px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .qc-tool-bar button.back-btn:hover {
+      border-color: #fff;
+      color: #fff;
+    }
+    .qc-tool-bar h1 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      margin: 0;
+    }
+    .qc-body {
+      flex: 1;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 40px 24px 64px;
+      width: 100%;
+    }
+    .qc-body .qc-intro-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px 28px;
+      box-shadow: var(--shadow);
+    }
+    .qc-body .qc-intro-card h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+    .qc-body .qc-intro-card p {
+      font-size: 0.9rem;
+      color: var(--text-body);
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+    .qc-body .qc-steps {
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: qc-step;
+    }
+    .qc-body .qc-steps li {
+      counter-increment: qc-step;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 14px;
+      font-size: 0.9rem;
+      color: var(--text-body);
+      line-height: 1.55;
+    }
+    .qc-body .qc-steps li::before {
+      content: counter(qc-step);
+      min-width: 26px;
+      height: 26px;
+      background: var(--accent-faint);
+      border: 1.5px solid var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .qc-email-link {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 11px 24px;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 7px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .qc-email-link:hover { background: var(--accent); }
   </style>
 </head>
 <body>
+
+<!-- ═══════════════════════════════════════════════════════════
+     LANDING SCREEN
+════════════════════════════════════════════════════════════ -->
+<div id="landing-screen">
+  <div class="landing-header">
+    <img id="landing-logo-header" alt="1Concier" style="max-height:54px;width:auto;" />
+  </div>
+  <div class="landing-body">
+    <h1 class="landing-title">1Concier Textile Support</h1>
+    <p class="landing-subtitle">How can we help you today?</p>
+    <div class="landing-cards">
+      <div class="landing-card" onclick="showWashTool()">
+        <div class="card-icon">🧺</div>
+        <div class="card-heading">Problems out of the Wash</div>
+        <div class="card-desc">Diagnose staining, damage, color changes, or other issues that appeared after laundering.</div>
+        <span class="card-cta">Start Diagnostic →</span>
+      </div>
+      <div class="landing-card" onclick="showBoxClaim()">
+        <div class="card-icon">📦</div>
+        <div class="card-heading">Problems out of the Box</div>
+        <div class="card-desc">Report a quality issue with new linen received — defects, damage, or incorrect items upon delivery.</div>
+        <span class="card-cta">Submit a Claim →</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     QUALITY CLAIM SCREEN
+════════════════════════════════════════════════════════════ -->
+<div id="quality-claim-screen" style="display:none;">
+  <div class="qc-header">
+    <img id="landing-logo" alt="1Concier" style="max-height:54px;width:auto;" />
+  </div>
+  <div class="qc-tool-bar">
+    <button class="back-btn" onclick="showLanding()">← Back</button>
+    <h1>Quality Claim Submission</h1>
+  </div>
+  <div class="qc-body">
+    <div class="qc-intro-card">
+      <h2>Report a Product Quality Issue</h2>
+      <p>If you have received linen with a defect, damage, or discrepancy upon delivery — before any laundering — please follow the steps below to submit a quality claim to our team.</p>
+      <ol class="qc-steps">
+        <li><strong>Document the issue.</strong> Take clear photos of the defect, including the front and back of the label clearly showing the PO number, a wide shot showing the extent of the problem, and a photo of the carton if possible.</li>
+        <li><strong>Note the details.</strong> Gather your purchase order number, item description, quantity affected, and a brief description of the defect.</li>
+        <li><strong>Contact our Quality Team</strong> using the claim submission form linked below. We will acknowledge your claim within one business day.</li>
+        <li><strong>Hold the affected items.</strong> Please set aside the affected linen for potential inspection or return — do not launder them prior to resolution.</li>
+      </ol>
+      <a class="qc-email-link" href="https://bit.ly/1CQualityIssue" target="_blank" rel="noopener noreferrer">
+        📋 Submit a Quality Claim
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     LAUNDRY DIAGNOSTIC TOOL (hidden until selected)
+════════════════════════════════════════════════════════════ -->
+<div id="tool-container" style="display:none;">
 
 <div class="announcement-bar">
   Your Trusted Luxury Linen Provider &mdash; Hotels, Resorts, Healthcare &amp; Commercial Laundry
@@ -704,6 +987,7 @@
   </div>
   <div class="header-tool-bar">
     <div class="header-tool-bar-inner">
+      <button onclick="showLanding()" style="background:transparent;border:1px solid rgba(255,255,255,0.35);color:rgba(255,255,255,0.85);border-radius:5px;padding:5px 14px;font-size:0.8rem;cursor:pointer;margin-right:12px;transition:border-color 0.15s,color 0.15s;" onmouseover="this.style.borderColor='#fff';this.style.color='#fff';" onmouseout="this.style.borderColor='rgba(255,255,255,0.35)';this.style.color='rgba(255,255,255,0.85)';">← Home</button>
       <h1>Laundry Diagnostic Tool</h1>
       <div class="header-divider"></div>
       <p>Hospitality &amp; Commercial Textile Care</p>
@@ -3456,6 +3740,44 @@ function buildResults() {
 
 // ─── Boot ───
 render();
+
+// ─── Landing Screen Routing ───
+function showLanding() {
+  document.getElementById('landing-screen').style.display = 'flex';
+  document.getElementById('quality-claim-screen').style.display = 'none';
+  document.getElementById('tool-container').style.display = 'none';
+  window.scrollTo(0, 0);
+}
+
+function showWashTool() {
+  document.getElementById('landing-screen').style.display = 'none';
+  document.getElementById('quality-claim-screen').style.display = 'none';
+  document.getElementById('tool-container').style.display = 'block';
+  // Reset the diagnostic tool to step 1 whenever entering from landing
+  state.step = 1; state.product = null; state.fiber = null;
+  state.issues = []; state.answers = { ph: null, temp: null, bleach: null, drying: null, mechanical: null, soil: null };
+  render();
+  window.scrollTo(0, 0);
+}
+
+function showBoxClaim() {
+  document.getElementById('landing-screen').style.display = 'none';
+  document.getElementById('quality-claim-screen').style.display = 'flex';
+  document.getElementById('tool-container').style.display = 'none';
+  window.scrollTo(0, 0);
+}
+
+// Copy real logo into landing/QC screens on page load
+(function() {
+  var toolLogo = document.querySelector('.header-logo-bar img');
+  if (toolLogo) {
+    var src = toolLogo.getAttribute('src');
+    ['landing-logo-header', 'landing-logo'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.setAttribute('src', src);
+    });
+  }
+})();
 </script>
 
 <footer class="site-footer">
@@ -3465,6 +3787,8 @@ render();
   <p>Your Trusted Luxury Linen Provider</p>
   <p style="margin-top:6px;">&copy; 2026 1Concier. All Rights Reserved. &nbsp;&bull;&nbsp; <a href="https://www.1concier.com" target="_blank" style="color:rgba(255,255,255,0.45);text-decoration:none;">www.1concier.com</a></p>
 </footer>
+
+</div><!-- /#tool-container -->
 
 </body>
 </html>
